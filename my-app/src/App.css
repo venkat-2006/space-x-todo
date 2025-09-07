@@ -1,0 +1,201 @@
+/* TodoSpace - Cosmic Quest Styles */
+
+/* Login card centering */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+body {
+  margin: 0;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  background: #121212; /* Example background */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+  text-align: center;
+}
+
+.login-form input {
+  text-align: center;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Todo item styling */
+.todo-item {
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effects */
+.glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Twinkle animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Input focus effects */
+input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Todo item hover effects */
+.todo-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Success animations */
+.success {
+  animation: success-pulse 0.6s ease-in-out;
+}
+
+@keyframes success-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Error states */
+.error {
+  border-color: #ef4444 !important;
+  animation: error-shake 0.5s ease-in-out;
+}
+
+@keyframes error-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Improved mobile responsiveness for login */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+  
+  .login-card {
+    max-width: 90vw;
+  }
+  
+  .login-form input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

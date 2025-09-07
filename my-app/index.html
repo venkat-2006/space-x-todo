@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoSpace - Cosmic Quest</title>
+    <!-- Place this inside your <head> section -->
+<link rel="icon" type="image/png" href="https://www.candyicons.com/style-image-examples/abstract-uYcg0JhhxK7bQ54KOtzsLX9U.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0c0c1d 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .planet {
+            position: fixed;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        /* Planet styles remain unchanged */
+        .planet-1 { width: 12px; height: 12px; background: #ff6b6b; top: 15%; left: 10%; animation: float1 6s ease-in-out infinite; }
+        .planet-2 { width: 16px; height: 16px; background: #4ecdc4; top: 25%; right: 15%; animation: float2 8s ease-in-out infinite; }
+        .planet-3 { width: 10px; height: 10px; background: #45b7d1; top: 45%; left: 20%; animation: float3 7s ease-in-out infinite; }
+        .planet-4 { width: 14px; height: 14px; background: #f9ca24; top: 60%; right: 25%; animation: float4 9s ease-in-out infinite; }
+        .planet-5 { width: 8px; height: 8px; background: #a55eea; top: 75%; left: 15%; animation: float5 5s ease-in-out infinite; }
+        .planet-6 { width: 18px; height: 18px; background: #26de81; top: 35%; left: 70%; animation: float6 10s ease-in-out infinite; }
+        .planet-7 { width: 11px; height: 11px; background: #fd79a8; top: 50%; right: 10%; animation: float7 6.5s ease-in-out infinite; }
+        .planet-8 { width: 13px; height: 13px; background: #e17055; top: 80%; right: 40%; animation: float8 8.5s ease-in-out infinite; }
+
+        /* Floating animations remain unchanged */
+        @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 33% { transform: translate(10px, -15px); } 66% { transform: translate(-5px, 10px); } }
+        @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, 15px); } }
+        @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(15px, 8px); } 75% { transform: translate(-10px, -12px); } }
+        @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 40% { transform: translate(-15px, -10px); } 80% { transform: translate(12px, 18px); } }
+        @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(8px, -20px); } }
+        @keyframes float6 { 0%, 100% { transform: translate(0, 0); } 30% { transform: translate(-12px, 15px); } 70% { transform: translate(18px, -8px); } }
+        @keyframes float7 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(25px, 12px); } }
+        @keyframes float8 { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(-8px, 20px); } 75% { transform: translate(15px, -15px); } }
+
+        .content-area {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Updated: Plain solid panels */
+        .ui-panel {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Planets -->
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+    <div class="planet planet-3"></div>
+    <div class="planet planet-4"></div>
+    <div class="planet planet-5"></div>
+    <div class="planet planet-6"></div>
+    <div class="planet planet-7"></div>
+    <div class="planet planet-8"></div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        <div class="max-w-7xl mx-auto">
+            <!-- React App Root -->
+            <div id="root"></div>
+        </div>
+    </div>
+
+    <!-- React Script -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+        // Generate random stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numStars = 100;
+            
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        createStars();
+    </script>
+</body>
+</html>
