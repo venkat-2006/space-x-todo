@@ -43,7 +43,7 @@ spxce-todo/
 
 ⚡ Getting Started
 1️⃣ Clone the Repository
-git clone https://github.com/venkat-2006/spxce-todo.git
+git clone https://github.com/venkat-2006/space-x-todo
 cd spxce-todo
 
 2️⃣ Setup Backend
